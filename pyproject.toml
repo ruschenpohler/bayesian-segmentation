@@ -1,0 +1,20 @@
+[project]
+name = "bayesian-segmentation"
+version = "0.1.0"
+description = "Bayesian hierarchical customer segmentation with partial pooling"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pymc>=5.10",
+    "pytensor>=2.18",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "openpyxl>=3.1",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "scikit-learn>=1.4",
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+    "pytest>=8.0",
+    "arviz>=0.18",
+]
