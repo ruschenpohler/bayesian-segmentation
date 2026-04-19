@@ -1,6 +1,6 @@
 # Implementation Log
 
-## 2026-04-19 — scaffold — complete
+## 2026-04-19: Scaffold
 
 ### What changed
 Initialised uv project with Python 3.11, created repo structure per plan
@@ -12,9 +12,9 @@ pushed initial commit to GitHub.
 Establishes clean baseline before any data or code is added.
 
 ### Open decisions
-None.
+None
 
-## 2026-04-19 — data-cleaning — complete
+## 2026-04-19: Data-cleaning
 
 ### What changed
 Implemented `src/bcs/data.py` with `load_raw`, `drop_missing_customers`,
@@ -23,13 +23,12 @@ Added `tests/test_data.py` with cancellation and quantity tests.
 Both tests pass.
 
 ### Why
-Data cleaning functions are the foundation for all downstream work.
-Keeping them in `src/bcs/` makes them testable and importable from notebooks.
+Data cleaning functions kept in `src/bcs/` makes them testable and importable from notebooks.
 
 ### Open decisions
-None.
+None
 
-## 2026-04-19 — feasibility — complete
+## 2026-04-19: Feasibility checks
 
 ### What changed
 Created `notebooks/01_eda_and_checks.ipynb` with all four feasibility checks:
@@ -43,8 +42,8 @@ installed Jupyter kernel `bayesian-segmentation`, and configured pytest
 `pythonpath = ["src"]` in pyproject.toml.
 
 ### Why
-Phase 1 is a strict gate — must confirm dataset supports the intended model
+Phase 1 is a strict gate: We need to confirm dataset supports the intended model
 before any feature engineering or modelling begins.
 
 ### Open decisions
-- Feasibility checks need to be executed by Julius to confirm go/no-go.
+- Will execute feasibility checks shortly to confirm go/no-go
