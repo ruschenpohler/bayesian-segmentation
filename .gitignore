@@ -9,3 +9,4 @@ notebooks/.ipynb_checkpoints/
 impl-plan.md
 *.lnk
 *:Zone.Identifier
+bayesian_segmentation.egg-info/
