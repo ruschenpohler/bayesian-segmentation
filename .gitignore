@@ -6,6 +6,6 @@ __pycache__/
 .venv/
 .pytest_cache/
 notebooks/.ipynb_checkpoints/
-impl-plan.md
+bayesian_segmentation.egg-info/
 *.lnk
 *:Zone.Identifier
