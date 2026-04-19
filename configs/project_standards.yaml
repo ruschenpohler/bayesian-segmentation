@@ -1,0 +1,20 @@
+# Project Standards
+
+## Code style
+- Follow PEP 8
+- Use type hints for function signatures
+- Docstrings for all public functions
+
+## Testing
+- All functions in src/bcs/ must have corresponding tests
+- Run pytest before each commit
+
+## Git
+- Commit after every coherent unit of work
+- Use conventional commit format: <scope>: <what was done>
+- Never git add . blindly — always specify files
+
+## Modelling
+- cores=1 always on WSL2/Windows
+- Use non-centred parameterisation for hierarchical models
+- Check divergences after every model fit
