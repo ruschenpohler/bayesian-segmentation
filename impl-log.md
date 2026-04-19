@@ -46,4 +46,37 @@ Phase 1 is a strict gate: We need to confirm dataset supports the intended model
 before any feature engineering or modelling begins.
 
 ### Open decisions
-- Will execute feasibility checks shortly to confirm go/no-go
+None
+
+## 2026-04-19: Feasibility results
+
+### What changed
+Executed all four feasibility checks. All passed:
+1. Country distribution: 17 countries in 10-500 range. Restricting to top 12
+   segments (>=15 customers) retains 97.7% of identified customers.
+2. Customer ID missingness: 22.8% overall, not concentrated in key segments.
+   Will drop rows with missing Customer ID.
+3. Churn base rate: 50.9% with 90-day window, 5,942 identified customers.
+4. PyMC sampling: 35s for timing model. NUTS is tractable.
+
+Decision: grouping variable is Country, dropping countries with <15 customers.
+
+### Why
+Documents the go/no-go outcomes so future readers understand the design choices.
+
+### Open decisions
+None
+## 2026-04-19: Feature engineering
+
+### What changed
+Implemented `src/bcs/features.py` with `build_customer_panel` and `log1p_scale`.
+Added `tests/test_features.py` (2 tests, both pass).
+Created `notebooks/02_feature_engineering.ipynb` to construct the customer panel
+with churn flags, CLV, and RFM features. Panel will be saved as parquet.
+
+### Why
+Feature engineering transforms raw transactions into customer-level observations
+ready for modelling. Keeping logic in `src/bcs/` keeps it testable.
+
+### Open decisions
+None
