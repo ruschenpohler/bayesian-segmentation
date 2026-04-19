@@ -18,3 +18,10 @@ dependencies = [
     "pytest>=8.0",
     "arviz>=0.18",
 ]
+
+[tool.setuptools.packages.find]
+include = ["src*", "src.bcs*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
