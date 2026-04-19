@@ -17,6 +17,7 @@ dependencies = [
     "ipykernel>=6.29",
     "pytest>=8.0",
     "arviz>=0.18",
+    "pyarrow>=15.0",       # parquet I/O for data persistence
 ]
 
 [tool.setuptools.packages.find]
