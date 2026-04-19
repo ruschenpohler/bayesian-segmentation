@@ -1,0 +1,8 @@
+data/*.xlsx
+data/*.csv
+data/*.zip
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+notebooks/.ipynb_checkpoints/
