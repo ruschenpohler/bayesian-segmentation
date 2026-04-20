@@ -50,7 +50,7 @@ The model is implemented in the **non-centred parameterisation**: rather than sa
 
 ## Key result
 
-The posterior median for $\tau$ is **0.45** (94% HDI: [0.13, 0.86]). On the log-odds scale, one posterior standard deviation of between-segment variation corresponds to roughly 10–12 percentage points of churn probability near the centre of the logistic — meaningful heterogeneity, but not so large that pooling contributes nothing. This is the regime where partial pooling earns its keep most visibly.
+The posterior median for $\tau$ is **0.45** (94% HDI: [0.13, 0.86]). On the log-odds scale, one posterior standard deviation of between-segment variation corresponds to roughly 10–12 percentage points of churn probability near the centre of the logistic — meaningful heterogeneity, but not so large that pooling contributes nothing. Exactly the regime where partial pooling plays to its strengths.
 
 The shrinkage plot above shows the effect concretely. On the x-axis is segment sample size (log scale); on the y-axis is estimated churn probability. Blue points are no-pooling estimates; red points are partial-pooling estimates; the dashed grey line is the full-pooling global mean (approximately 51%).
 
@@ -66,7 +66,7 @@ The partial pooling model requires care. The default NUTS settings (target accep
 
 Two remedies were tested: widening the prior on $\tau$ from HalfNormal(1) to HalfNormal(2), and increasing `target_accept` to 0.95. The wider prior reduced divergences to 23 but did not eliminate them, confirming that the prior specification was not the bottleneck. Increasing `target_accept` to 0.95 with 1,500 tuning steps reduced divergences to 1, with the remaining divergence scattered in the bulk of the posterior rather than concentrated at any boundary. The summary statistics for the final model confirm convergence: $\hat{R} < 1.01$ and ESS$_\text{bulk} > 400$ for all parameters.
 
-The canonical model therefore uses HalfNormal(1) with `target_accept=0.95`. The full diagnostic sequence — pair plots, parallel plots, energy diagnostics, and the prior-widening experiment — is documented in `notebooks/03_models.ipynb`.
+The canonical model therefore uses HalfNormal(1) with `target_accept=0.95`. The full diagnostic sequence (pair plots, parallel plots, energy diagnostics, and the prior-widening experiment) is documented in `notebooks/03_models.ipynb`.
 
 ---
 
