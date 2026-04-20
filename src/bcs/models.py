@@ -15,7 +15,8 @@ def fit_no_pooling(
         p = pm.math.sigmoid(alpha[segment_idx])
         y = pm.Bernoulli("y", p=p, observed=outcome)
         trace = pm.sample(draws, tune=tune, cores=1,
-                          random_seed=42, progressbar=True)
+                          random_seed=42, progressbar=True,
+                          idata_kwargs={"log_likelihood": True})
     return model, trace
 
 
@@ -29,7 +30,8 @@ def fit_full_pooling(
         p = pm.math.sigmoid(alpha)
         y = pm.Bernoulli("y", p=p, observed=outcome)
         trace = pm.sample(draws, tune=tune, cores=1,
-                          random_seed=42, progressbar=True)
+                          random_seed=42, progressbar=True,
+                          idata_kwargs={"log_likelihood": True})
     return model, trace
 
 
@@ -48,13 +50,12 @@ def fit_partial_pooling(
         p = pm.math.sigmoid(alpha[segment_idx])
         y = pm.Bernoulli("y", p=p, observed=outcome)
         trace = pm.sample(draws, tune=tune, cores=1,
-                          random_seed=42, progressbar=True)
+                          random_seed=42, progressbar=True,
+                          idata_kwargs={"log_likelihood": True})
     return model, trace
 
 
 def check_divergences(trace):
     divergences = trace.sample_stats["diverging"].sum().item()
     print(f"Divergences: {divergences}")
-    if divergences > 10:
-        print("WARNING: >10 divergences. Increase target_accept to 0.9.")
     return divergences
