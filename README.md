@@ -4,7 +4,7 @@ Partial pooling over heterogeneous customer segments using a Bayesian hierarchic
 
 ![Shrinkage plot](figures/shrinkage_plot.png)
 
-Shrinkage plot: **Small segments are pulled toward the global mean in proportion to their uncertainty (Sweden, Italy, Netherlands). Large segments are left where their data puts them (United Kingdom).** The two limiting cases, fitting independent models per segment (no pooling) and fitting a single global model (full pooling), are included as baselines.
+*Shrinkage plot: **Small segments are pulled toward the global mean in proportion to their uncertainty (Sweden, Italy, Netherlands). Large segments are left where their data puts them (United Kingdom).** The two limiting cases, fitting independent models per segment (no pooling) and fitting a single global model (full pooling), are included as baselines.*
 
 ---
 
@@ -66,11 +66,11 @@ Leave-one-out cross-validation (LOO-CV) confirms the ranking suggested by the sh
 
 ![LOO cross-validation](figures/LOO_plot.png)
 
-Leave-one-out cross-validation plot: **Partial pooling achieves the highest expected log pointwise predictive density**. No pooling is closer than full pooling because the UK dominates this dataset in observations.
+*Leave-one-out cross-validation plot: **Partial pooling achieves the highest expected log pointwise predictive density**. No pooling is closer than full pooling because the UK dominates this dataset in observations.*
 
 The gap between full pooling and the other two models is large and unambiguous; the intervals do not overlap. Full pooling discards real between-country variation, and the predictive penalty is detectable even though the UK (n = 5,349) contributes the majority of observations and is barely affected by pooling. The partial vs. no-pooling gap is smaller, with overlapping intervals. This is expected: LOO weights all observations equally, so the gains from regularising small segments (Sweden, Italy, Netherlands) are diluted by the UK's dominance. In a more balanced dataset the advantage of partial pooling would be more pronounced.
 
-**In practice, this means that if you were to deploy a churn model and score a new customer from Belgium or Italy, partial pooling would give you a better-calibrated probability than either alternative — not because the model is more complex, but because it makes smarter use of the data it already has.**
+**In practice, this means that if you were to deploy a churn model and score a new customer from Belgium or Italy, partial pooling would give you a better-calibrated probability than either alternative; not because the model is more complex, but because it makes smarter use of the data it already has.**
 
 ---
 
