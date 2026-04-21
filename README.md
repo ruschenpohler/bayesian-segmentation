@@ -91,11 +91,11 @@ bayesian-segmentation/
 ├── README.md
 ├── pyproject.toml
 ├── .gitignore
-├── IMPLEMENTATION_LOG.md
 ├── data/
 │   └── .gitkeep          # data not committed; download via script
 ├── figures/
 │   └── shrinkage_plot.png
+│   └── LOO_plot.png
 ├── notebooks/
 │   ├── 01_eda_and_checks.ipynb
 │   ├── 02_feature_engineering.ipynb
